@@ -79,5 +79,62 @@ Para aprovecharla al máximo, se recomiendan prácticas de **integración y desp
 ## 2. Diagrama de la Arquitectura
 
 A continuación se muestra un diagrama representativo:
+┌───────────────┐ ┌─────────────────────┐ ┌───────────────────┐ │ (Cliente) │ │ Capa de Negocio │ │ Capa de Datos │ │ Navegador Web │ ---> │ (Servidor Node.js) │ ---> │ (Base de Datos) │ │ (Front-End) │ │ + Lógica Negocio │ │ (MySQL/PostgreSQL)│ └───────────────┘ └─────────────────────┘ └───────────────────┘
 
+markdown
+Copiar
+Editar
+
+- El **Front-End** se comunica con el servidor de aplicaciones mediante **peticiones HTTP/HTTPS** (REST, por ejemplo).
+- El **Back-End** a su vez gestiona la lógica y se conecta a la **Base de Datos** a través de un driver o librería (MySQL, Sequelize, etc.).
+
+---
+
+## 3. Tecnologías Empleadas
+
+- **Servidor Web**: Apache o Nginx (en muchos casos, puede haber un proxy inverso delante de la aplicación Node.js).  
+- **Servidor de Aplicaciones**: Node.js con Express.  
+- **Base de Datos**: MySQL (en el ejemplo) o cualquier otra base de datos relacional/NoSQL.  
+- **Herramientas de Seguridad**: SSL/TLS, Autenticación básica, JWT (JSON Web Tokens) para rutas protegidas.  
+- **Servicios Adicionales**:  
+  - **Servidor de Archivos**: vsftpd (FTP) o SFTP (SSH).  
+  - **Servidor DNS**: Bind9.  
+  - **Servicio de Directorio**: OpenLDAP.
+
+---
+
+## 4. Análisis de Ventajas y Desventajas
+
+### Ventajas
+
+1. **Modularidad**  
+   Permite mantener y escalar cada capa de forma independiente, reduciendo la complejidad en caso de actualizaciones o correcciones.
+
+2. **Escalabilidad**  
+   Cada capa puede escalarse horizontal o verticalmente según la demanda (por ejemplo, añadir más servidores para la capa de Negocio).
+
+3. **Mantenibilidad**  
+   Separar la lógica de negocio de la presentación facilita la detección de errores y el desarrollo de nuevas funcionalidades sin romper otras partes del sistema.
+
+4. **Seguridad**  
+   La base de datos se aísla de la red pública, y se pueden agregar capas de autenticación y cifrado en la comunicación.
+
+### Desventajas
+
+1. **Mayor Complejidad Inicial**  
+   Requiere una planificación y configuración más detallada que una arquitectura monolítica.
+
+2. **Latencia Adicional**  
+   Cada llamada entre capas introduce un salto de red, lo que puede incrementar la latencia si no se maneja adecuadamente.
+
+3. **Costos de Infraestructura**  
+   Múltiples servidores o contenedores pueden generar costos adicionales (especialmente en entornos Cloud).
+
+---
+
+## 5. Conclusiones de la Arquitectura
+
+La arquitectura de tres capas es una solución madura y extensamente utilizada en proyectos de diversa magnitud. Ofrece una buena combinación de escalabilidad, mantenibilidad y seguridad, aunque requiere una mayor inversión en términos de planeación y despliegue inicial. 
+
+Para aprovecharla al máximo, se recomiendan prácticas de **integración y despliegue continuo (CI/CD)*
 
