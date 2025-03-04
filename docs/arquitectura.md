@@ -83,4 +83,4 @@ Editar
 
 La arquitectura de tres capas es una solución madura y extensamente utilizada en proyectos de diversa magnitud. Ofrece una buena combinación de escalabilidad, mantenibilidad y seguridad, aunque requiere una mayor inversión en términos de planeación y despliegue inicial. 
 
-Para aprovecharla al máximo, se recomiendan prácticas de **integración y despliegue continuo (C
+Para aprovecharla al máximo, se recomiendan prácticas de **integración y despliegue continuo (CI/CD)**, monitoreo de todas las capas y pruebas sistemáticas que garanticen la disponibilidad y rendimiento del sistema.
